@@ -1,0 +1,31 @@
+
+
+<br>
+
+  <p *ngIf="errorFlag" class="bg-danger">Search did not yield any results</p>
+
+
+<div *ngIf="!errorFlag && results" class="panel panel-primary" >
+  <div class="panel-heading">
+    <h3 class="panel-title">Search results</h3>
+  </div>
+  <div class="panel-body" >
+    <div class="row">
+      <div  *ngFor="let item of results" class="col-lg-2 col-xs-6 col-md-3" >
+        <div class="panel panel-primary">
+          <div class="panel-heading" style="min-height: 50px; max-height: 50px;">
+            <h3 class="panel-title"> {{item.Title}}</h3>
+          </div>
+          <div class="panel-body" style="min-height: 120px; max-height: 120px;">
+             Call: {{item.Phone}} <br>
+           City: {{item.City}} <br>
+           Distance {{item.Distance}}<br>
+
+          <a href="https://maps.google.com?q=@{{item.Latitude}},{{item.Longitude}}" target="_blank">Get Directions</a> <br>
+           <a href="{{item.Url}}" target="_blank">More info</a> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

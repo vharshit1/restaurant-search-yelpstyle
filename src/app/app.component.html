@@ -1,3 +1,45 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <br>
+  <form id="shopping-list-add" (ngSubmit)="onSubmit(search.value,zip.value,sort.value)" #f="ngForm" class="form-horizontal">
+
+    <div class="form-group ">
+      <div class="col-sm-5">
+        <input type="text" class="form-control" placeholder="Search for cusine, restaurant, food..."  required #search>
+
+      </div>
+
+
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="searchTextField"  placeholder="Address" #zip required>
+
+      </div>
+      <div class="col-sm-2">
+
+        <select class="form-control" #sort> 
+           <option value="relevance">By Relavance</option>
+            <option value="Title">By Name</option>
+  <option value="Distance">By Distance</option>
+ 
+
+</select>
+
+      </div>
+
+
+      <div class="col-sm-1">
+        <button class="btn btn-default" type="submit" [disabled]="!f.valid">Search</button>
+      </div>
+
+
+
+    </div>
+   
+
+    <!-- /input-group -->
+
+  </form>
+  <app-searchresults [formData]="formData"> </app-searchresults>
+
+
+
+</div>
